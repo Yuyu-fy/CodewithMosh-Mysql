@@ -25,4 +25,8 @@ SELECT points+10 AS discout_factor
 SELECT points+10 AS "discout factor"(单引号‘’也可以）
 
 最后一点，如果想在选取用的数据中，去除重复数据，则使用以下语句：  
-SELECT DISTINCT state 就可以完成去重
+SELECT DISTINCT state 就可以完成去重  
+作业题：  
+USE sql_store;
+SELECT  name, unit_price , unit_price *1.1 AS "new price"
+FROM products;
