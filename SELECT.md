@@ -35,5 +35,10 @@ FROM products;
 如：Select * From customers Where prices > 300,SQL中的符号有>,<,>=,<=,!=,=,<>(同！=）  
 如果是要等于字符内容，则要对字符内容打上""或者'',值得注意的是字符的大小写并不影响判断，如Where state = ‘va’和 = ‘VA’会得到相同的结果。
 同样的，日期虽然是数字，但是在SQL中仍认为是字符，因为包含了-这样的符号，例如Where birth_date > '1900-01-01'
+作业题：  
+USE sql_store;
+SELECT * 
+FROM orders
+WHERE order_date >= '2019-01-01' and order_date <= '2020-01-01';
 
 
