@@ -30,3 +30,7 @@ SELECT DISTINCT state 就可以完成去重
 USE sql_store;
 SELECT  name, unit_price , unit_price *1.1 AS "new price"
 FROM products;
+
+其次是Where语句。Where会对选取数据进行筛选，设定一个标准然后会一条一条比对，只会输出符合条件的数据  
+如：Select * From customers Where prices > 300,SQL中的符号有>,<,>=,<=,!=,=,<>(同！=）  
+
