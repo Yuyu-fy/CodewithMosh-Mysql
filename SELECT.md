@@ -60,4 +60,12 @@ SELECT *
 FROM order_items
 WHERE  quantity  IN (49 , 38 , 72);
 
+7.BETWEEN语句，目的也是简化程序，很好理解就是直接将一个值的区间替换，举个例子就很清晰了：  
+WHRER points BETWEEN 1000 AND 3000 等同于 WHERE points >= 1000 AND points <=3000    
+但值得注意的是，between不止适用于数字，也适用于字符等形式
+作业题：
+USE sql_store;
+SELECT * 
+FROM customers
+WHERE  birth_date BETWEEN '1990-01-01' AND '2020-01-01';
 
