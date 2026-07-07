@@ -69,3 +69,15 @@ SELECT *
 FROM customers
 WHERE  birth_date BETWEEN '1990-01-01' AND '2020-01-01';
 
+8.LIKE语句，一个很有年代感的语句  
+用于筛选特定的数据点，有两种语法 % 和 _  
+%表示任意个字符，_表示单个字符  具体用法如下：  
+WHRER last_name LIKE '%b%'表达名字中有b就行。
+LIKE '%b'表示b结尾，前面随便 LIKE '_b'表示就俩字符，前一个随便，后一个是b。
+注意，同上面几条中的内容，大写小写不做区分  
+作业题：  
+1.USE sql_store;
+SELECT * 
+FROM customers
+WHERE  address LIKE '%trail%'  or address LIKE '%avenue';  
+2.WHRER phone LIKE '%9'
