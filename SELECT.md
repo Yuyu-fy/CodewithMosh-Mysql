@@ -39,6 +39,14 @@ FROM products;
 USE sql_store;
 SELECT * 
 FROM orders
-WHERE order_date >= '2019-01-01' and order_date <= '2020-01-01';
+WHERE order_date >= '2019-01-01' and order_date <= '2020-01-01';  
+  
+紧接着是AND，OR，NOT语句。如其词义，很好理解就是在判断中加入和，或，整体否定，这里就不做特别说明了。只需知道AND的优先级高于OR即可，不过最好还是对判断式进行完全括号化来增加程序可读性。    
+作业题：  
+USE sql_store;
+SELECT * 
+FROM order_items
+WHERE  order_id = 6 AND unit_price *quantity > 30;
+
 
 
