@@ -96,3 +96,11 @@ USE sql_store;
 SELECT *
 FROM customers
 WHERE first_name REGEXP 'elka|ambur' 
+
+10.IS NULL语句，用于查询含有空数据的样本。
+例：如果我想查找手机号是否为空 WHRER phone IS (NOT) NULL,表达查找手机号（不）是空的样本点。
+作业题：  
+USE sql_store;
+SELECT *
+FROM orders
+WHERE shipped_date IS NULL
