@@ -81,3 +81,18 @@ SELECT *
 FROM customers
 WHERE  address LIKE '%trail%'  or address LIKE '%avenue';  
 2.WHRER phone LIKE '%9'
+
+9.REGEXP语句（regular expression），在检索字符串上功能十分强大  
+他有以下几种语法 ：  
+1）直接'（如）field'中套词语，表示搜索含这个字符串的内容，无论位置在哪里  
+2）‘^field'表达搜索以这个字符串开头的内容  
+3）'field$'表达搜索以这个字符串结尾的内容。
+4）'field|mac'表达搜索含有这两个字符串任意一个的内容，值得注意的4）的语法比2）和3）优先级更低  
+5）'[adgh]k'表达含有ak/dk/gk/hk这些字符的内容，[]中的内容可以看作一个可从中任选其一的集合。
+6）'[a-h]k'表达含有从a-h的字母中选择一个和k组合的内容。
+具体用法如 WHERE customers REGEXP '[a-h]k'  
+作业题：  
+USE sql_store;
+SELECT *
+FROM customers
+WHERE first_name REGEXP 'elka|ambur' 
