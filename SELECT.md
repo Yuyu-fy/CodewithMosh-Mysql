@@ -103,4 +103,18 @@ WHERE first_name REGEXP 'elka|ambur'
 USE sql_store;
 SELECT *
 FROM orders
-WHERE shipped_date IS NULL
+WHERE shipped_date IS NULL。
+
+11.ORDER BY语句，是对列表进行特定规则排序的操作  
+首先，我们拿到的列表一般是已经依照一个主列进行排序过的，这个主列的特点是单独唯一性，即不会出现两行的这一列数据是相同的。
+现在我们需要对他进行排序操作，很简单，就是单独加上一行 ORDER BY fist_name  
+有以下语法：  
+1)如果要降序排列，就在排序列名称后面加上DESC 如ORDER BY first_name DESC  
+2)如果希望先依照一列排序，如果有重复的就按照第二列的顺序排列就在两列名称中间加，即可，如：ORDER BY first_name (DESC),last_name (DESC)  
+3)MYSQL最大的优势是他可以对没有SELECT的列进行排序，如我们只select了first_name一栏，但是我们仍可以对last_name一栏排序。同时也可以对自定义列排序，如SELECT 10 AS points，我们也可以对这个points这一列进行排序。
+作业题：  
+USE sql_store;
+SELECT *
+FROM order_items
+WHERE order_id=2
+ORDER BY unit_price * quantity DESC;
