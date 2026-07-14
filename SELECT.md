@@ -111,10 +111,21 @@ WHERE shipped_date IS NULL。
 有以下语法：  
 1)如果要降序排列，就在排序列名称后面加上DESC 如ORDER BY first_name DESC  
 2)如果希望先依照一列排序，如果有重复的就按照第二列的顺序排列就在两列名称中间加，即可，如：ORDER BY first_name (DESC),last_name (DESC)  
-3)MYSQL最大的优势是他可以对没有SELECT的列进行排序，如我们只select了first_name一栏，但是我们仍可以对last_name一栏排序。同时也可以对自定义列排序，如SELECT 10 AS points，我们也可以对这个points这一列进行排序。
+3)MYSQL最大的优势是他可以对没有SELECT的列进行排序，如我们只select了first_name一栏，但是我们仍可以对last_name一栏排序。同时也可以对自定义列排序，如SELECT 10 AS points，我们也可以对这个points这一列进行排序。  
 作业题：  
 USE sql_store;
 SELECT *
 FROM order_items
 WHERE order_id=2
-ORDER BY unit_price * quantity DESC;
+ORDER BY unit_price * quantity DESC;  
+
+12.LIMIT语句，用于选择限定数量的的样本。
+使用方式如LIMIT 3，表示返回前3个样本。值得注意的是，如果需要的数目大于表格中有的样本数，则会返回所有样本。
+还可以使用偏移，如LIMIT 6，3，表示跳过前六个样本，从第7个样本开始选择3个样本。
+作业题：  
+USE sql_store;
+SELECT *
+FROM customers
+ORDER BY points DESC
+LIMIT 3;
+
