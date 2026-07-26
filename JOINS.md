@@ -19,5 +19,12 @@ SELECT *
 FROM order_items oi  
 JOIN sql_inventory.products p ON oi.product_id = p.product_id;  
 
-3.
+3.自连接  
+有时候我们需要将表和表自己相连接，这和跨数据库连接没什么不同，只是使用缩写成为了必需品，否则将无法区分自相连接的表1和表2.  
+示例如下：  
+USE sql_hr;  
+SELECT e.employee_id,e.first_name,m.first_name AS manager  
+FROM employees e  
+JOIN employees m ON e.reports_to = m.employee_id;
+
 
