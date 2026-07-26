@@ -11,4 +11,13 @@ JOIN products p ON oi.product_id = p.product_id;
 2）ON语句表达选取合并的标准，如这段程序最后会将product_id相等的数据合并。  
 3）我们可以在表名出现后写入他的缩写，如oi和p。这样写代码更加方便，但是要注意的是，一旦给表名命名了缩写，在程序的任何地方都必须以缩写形式写入这个表，包括SELECT语句。
   
-2.
+2.跨数据库连接   
+有些时候我们希望将两个或几个不同数据库里的数据表进行连接，这时候我们就需要用到这个语法。  
+非常简单，我们只需要在费当前引用数据库的表前面加上它所属数据库的前缀即可，示例如下：  
+USE sql_store;  
+SELECT *  
+FROM order_items oi  
+JOIN sql_inventory.products p ON oi.product_id = p.product_id;  
+
+3.
+
