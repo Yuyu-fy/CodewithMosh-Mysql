@@ -42,3 +42,11 @@ USE sql_store;
 SELECT *   
 FROM order_items oi    
 JOIN order_item_notes oin ON oi.order_id= oin.order_id AND oi.product_id = oin.product_id;
+
+6.隐式连接语法。
+即不写join，将on语句写到where语句中，示例如下：  
+USE sql_store;  
+SELECT order_id,oi.order_id,quantity,oi.unit_price  
+FROM order_items oi , products p 
+WHRER oi.product_id = p.product_id;   
+效果和写JOIN是一样的
