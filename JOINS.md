@@ -36,3 +36,9 @@ FROM payments p
 JOIN clients c ON p.client_id = c.client_id    
 JOIN payment_methods pm ON p.payment_method = pm.payment_method_id;
 
+5.复合连接条件。
+在一些情况下，一个数据表中单一数据列会有重复的数值，不能特征地代表一个数据点，所以我们需要将几列一起看才能确定唯一一个数据点，所以我们在将这种表连接的时候需要将几列的数据一起纳入ON 语句中，示例如下：  
+USE sql_store;  
+SELECT *   
+FROM order_items oi    
+JOIN order_item_notes oin ON oi.order_id= oin.order_id AND oi.product_id = oin.product_id;
