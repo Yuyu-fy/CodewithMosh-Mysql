@@ -27,4 +27,12 @@ SELECT e.employee_id,e.first_name,m.first_name AS manager
 FROM employees e  
 JOIN employees m ON e.reports_to = m.employee_id;
 
+4.多表连接。
+很多时候将好几张表连接在一起都是很常见的事情，他的操作也很简单，就是要连接几张表，就写几次JOIN语句即可。  
+示例如下：  
+USE sql_invoicing;  
+SELECT p.date,p.invoice_id,p.amount,c.name,pm.name   
+FROM payments p   
+JOIN clients c ON p.client_id = c.client_id    
+JOIN payment_methods pm ON p.payment_method = pm.payment_method_id;
 
