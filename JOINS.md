@@ -86,3 +86,9 @@ SELECT p.date,c.name AS client,p.amount,pm.name AS payment_method
 FROM payments p   
 JOIN clients c USING (client_id)   
 JOIN payment_methods pm ON p.payment_method = pm.payment_method_id;
+
+11.自然连接。  
+自然连接就是交给机器自己判断将哪些列合并，通常是对名字相同的列进行合并，如FROM payments p   NATURAL JOIN clients c   
+写起来是非常方便，但是通常会出现意料之外的结果，所以一般不做使用。  
+
+12.交叉连接。
