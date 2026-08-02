@@ -76,3 +76,13 @@ USE sql_hr;
 SELECT e.employee_id,e.first_name,m.first_name AS manager  
 FROM employees e  
 LEFT JOIN employees m ON e.reports_to = m.employee_id;
+
+10.USING语句   
+一种简化代码的语句，如果ON条件前后表中的数据名称一样就可以用USING语句简化,内连接和外连接都可以用。  
+如LEFT JOIN customers c ON o.customer_id = c.customer_id   可简化为LEFT JOIN customers c USING (customer_id)。  
+如遇到复合连接情况，则使用USING（order_id,customer_id)这样的括号加逗号的形式表达。  
+USE sql_invoicing;  
+SELECT p.date,c.name AS client,p.amount,pm.name AS payment_method   
+FROM payments p   
+JOIN clients c USING (client_id)   
+JOIN payment_methods pm ON p.payment_method = pm.payment_method_id;
