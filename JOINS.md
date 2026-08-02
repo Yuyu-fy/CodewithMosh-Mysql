@@ -51,7 +51,8 @@ FROM order_items oi , products p
 WHRER oi.product_id = p.product_id;   
 效果和写JOIN是一样的
 
-7.外连接  
+7.外连接    
+使用外连接的原因是：希望将一些有空栏位的数据也输出保证输出完整性。如保证员工人员名单完整性。
 分为LEFT JOIN和RIGHT JOIN，LEFT JOIN 会将先出现的表的数据全部输出，无论是否满足ON条件。RIGHT JOIN则会将后出现的表的数据全部输出，无论是否满足ON条件。  
 很简单，给个示例如下：  
 USE sql_store;  
@@ -68,3 +69,10 @@ FROM orders o
 LEFT JOIN customers c ON o.customer_id = c.customer_id   
 LEFT JOIN shippers sh ON o.shipper_id = sh.shipper_id   
 LEFT JOIN order_statuses oss ON o.status = oss.order_status_id;
+
+9.自外连接   
+顾名思义，就是将一个表自己和自己外连接。同自连接代码，只是将JOIN 变成LEFT JOIN。  
+USE sql_hr;  
+SELECT e.employee_id,e.first_name,m.first_name AS manager  
+FROM employees e  
+LEFT JOIN employees m ON e.reports_to = m.employee_id;
