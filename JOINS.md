@@ -58,3 +58,13 @@ USE sql_store;
 SELECT p.product_id,p.name,oi.quantity   
 FROM products p   
 LEFT JOIN order_items oi ON p.product_id= oi.product_id;
+
+8.多表外连接   
+很简单，就进行LEFT JOIN 或者 RIGHT JOIN 的叠加就行。但是建议尽可能只使用LEFT JOIN这样表连接起来更清晰，可读性更高   
+示例如下：  
+USE sql_store;  
+SELECT o.order_date,o.order_id,c.first_name,sh.name AS shipper,oss.name AS status   
+FROM orders o    
+LEFT JOIN customers c ON o.customer_id = c.customer_id   
+LEFT JOIN shippers sh ON o.shipper_id = sh.shipper_id   
+LEFT JOIN order_statuses oss ON o.status = oss.order_status_id;
