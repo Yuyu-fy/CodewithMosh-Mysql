@@ -50,3 +50,11 @@ SELECT order_id,oi.order_id,quantity,oi.unit_price
 FROM order_items oi , products p 
 WHRER oi.product_id = p.product_id;   
 效果和写JOIN是一样的
+
+7.外连接  
+分为LEFT JOIN和RIGHT JOIN，LEFT JOIN 会将先出现的表的数据全部输出，无论是否满足ON条件。RIGHT JOIN则会将后出现的表的数据全部输出，无论是否满足ON条件。  
+很简单，给个示例如下：  
+USE sql_store;  
+SELECT p.product_id,p.name,oi.quantity   
+FROM products p   
+LEFT JOIN order_items oi ON p.product_id= oi.product_id;
