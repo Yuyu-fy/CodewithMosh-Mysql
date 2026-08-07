@@ -91,4 +91,10 @@ JOIN payment_methods pm ON p.payment_method = pm.payment_method_id;
 自然连接就是交给机器自己判断将哪些列合并，通常是对名字相同的列进行合并，如FROM payments p   NATURAL JOIN clients c   
 写起来是非常方便，但是通常会出现意料之外的结果，所以一般不做使用。  
 
-12.交叉连接。
+12.交叉连接。  
+CROSS JOIN 就是将两张表中的每一列数据交叉一一排列组合。通常运用于如下场景：鞋店有小中大三种型号，有红绿蓝三种颜色。用CROSS JOIN语句，生成该鞋店售卖的所有种类的鞋子。  
+它有两种写法，一种是显写法，就是用CROSS JOIN，例子如下：    
+FROM shippers sh   
+CROSS JOIN products p
+另一种写法是隐写法，就是直接将两张表同时FROM一下，例子如下：  
+FROM shipper sh, products p 
