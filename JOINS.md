@@ -98,3 +98,15 @@ FROM shippers sh
 CROSS JOIN products p
 另一种写法是隐写法，就是直接将两张表同时FROM一下，例子如下：  
 FROM shipper sh, products p 
+
+13.UNION 语句。
+Union语句可以将几个查询合并到一起，需要保证的前提是这个几个查询的列的内容是相同的即可。
+示例如下：  
+SELECT customer_id, first_name , 'Bronze' AS type  
+FROM customers   
+WHERE points < 2000  
+UNION   
+SELECT customer_id, first_name , 'Silver' AS type  
+FROM customers   
+WHERE points between 2000 and 3000
+ 
