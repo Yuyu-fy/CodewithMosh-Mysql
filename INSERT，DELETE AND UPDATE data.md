@@ -8,4 +8,8 @@
 如果这样的话，values里面需要写入每一列的内容，如果要使用列的默认值就填DEFAULT，空就可以写NULL。  
 你也可以在INSERT INTO语句后面加上括号，变成customers（），在括号里面写不使用默认值的列内容，这样在values内就可以少写一点了     
 
-3.插入多行
+3.插入多行。  
+非常简单，在INSERT INTO shippers（name） VALUE（‘shipper1’）这样是插入单行。  
+INSERT INTO shippers（name） VALUE（‘shipper1’），（‘shipper2’），（‘shipper3’）这样就是插入多行了。  
+
+4.
