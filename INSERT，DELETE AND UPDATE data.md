@@ -12,4 +12,11 @@
 非常简单，在INSERT INTO shippers（name） VALUE（‘shipper1’）这样是插入单行。  
 INSERT INTO shippers（name） VALUE（‘shipper1’），（‘shipper2’），（‘shipper3’）这样就是插入多行了。  
 
-4.
+4.插入分层行。  
+有时候一个表的一个数据会对应另一个表里的多个数据，这种表叫做子母表。  
+插入分层行就是在多个表里插入数据，示例如下：  
+INSERT INTO order（customer_id,order_date,status) VALUES(1,'2019-01-01',1)   
+INSERT INTO order_items VALUES(LAST_INSERT_ID(),1,1,2.95)   
+这里面用到一个mysql的内在函数LAST_INSERT_ID()就是指上一个插入操作插入的最后一个ID值，这样插入的时候两个表的id就能对上了   
+
+5.
