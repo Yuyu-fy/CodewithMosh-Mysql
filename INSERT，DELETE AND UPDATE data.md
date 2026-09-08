@@ -42,4 +42,9 @@ WHERE invoice_id=1;
 和更新单行没什么区别，就是WHERE语句内容变一变。比如我想修改生日在5-1日之前的人，就只修改WHERE语句的内容即可。  
 需要注意的只是mysql工作台如果想要更新多行，需要在设置里把safe update勾选去掉才可以，不然会报错。这个设置就是为了防止你不小心修改了不想修改的数据而设置。  
 
+8.在updates语句中使用子查询。  
+子查询就像当于两个for循环那个套在里面的循环，先进行查询再以返回值参与到之前的for循环中。  
+具体而言就是讲WHERE invoice_id=1这一句改变，比如我们要修改所有orders表里积分大于300的用户的数据，那就这样修改   
+WHERE customer_id IN (SELECT customer_id FROM orders WHERE points > 3000)     
 
+9.
