@@ -30,3 +30,12 @@ FROM invoices inv
 JOIN clients cli 
     USING (client_id)
 WHERE payment_date IS NOT NULL
+
+6.更新单行。 
+使用UPDATE语句。示例如下：  
+UPDATE invoices  
+SET payment_total=10,payment_date='2019-01-01'    
+WHERE invoice_id=1;  
+表示将invoice表里id=1的数据更新成set里的内容，当然=右边也可以是表里的数据列的数据并可以进行四则运算payment_date=due_date也是合规的 
+
+7.
