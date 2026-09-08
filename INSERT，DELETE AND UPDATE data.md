@@ -47,4 +47,7 @@ WHERE invoice_id=1;
 具体而言就是讲WHERE invoice_id=1这一句改变，比如我们要修改所有orders表里积分大于300的用户的数据，那就这样修改   
 WHERE customer_id IN (SELECT customer_id FROM orders WHERE points > 3000)     
 
-9.
+9.删除行。   
+操作很简单，使用DELETE FROM 语句就可以了。  
+比如说从invoices表中删除所有叫myworks的人：DELETE FROM invoices WHRER client_id = (SELECT client_id FROM customers WHERE name="myworks"   
+
