@@ -23,3 +23,10 @@ INSERT INTO order_items VALUES(LAST_INSERT_ID(),1,1,2.95)
 创建表复制这个操作本身很简单，就是使用create table +复制表名称+ as语句即可。  
 比如说我要复制一个customers表，就使用CREATE TABLE customers_archive AS SELECT * FROM customers    
 这样操作就可以复制一张表了。
+USE sql_invoicing;
+CREATE TABLE  invoices_archive AS
+SELECT inv.invoice_id,inv.number,cli.name AS client,inv.invoice_total,inv.payment_total,inv.invoice_date,inv.payment_date,inv.due_date
+FROM invoices inv
+JOIN clients cli 
+    USING (client_id)
+WHERE payment_date IS NOT NULL
