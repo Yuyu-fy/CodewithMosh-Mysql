@@ -19,4 +19,7 @@ INSERT INTO order（customer_id,order_date,status) VALUES(1,'2019-01-01',1)
 INSERT INTO order_items VALUES(LAST_INSERT_ID(),1,1,2.95)   
 这里面用到一个mysql的内在函数LAST_INSERT_ID()就是指上一个插入操作插入的最后一个ID值，这样插入的时候两个表的id就能对上了   
 
-5.
+5.创建表复制。  
+创建表复制这个操作本身很简单，就是使用create table +复制表名称+ as语句即可。  
+比如说我要复制一个customers表，就使用CREATE TABLE customers_archive AS SELECT * FROM customers    
+这样操作就可以复制一张表了。
